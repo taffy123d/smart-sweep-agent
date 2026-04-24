@@ -9,7 +9,7 @@ from utils.path_tool import get_abs_path
 from utils.logger_handler import logger
 import os
 from datetime import date
-from utils.logger_handler import logger
+
 
 
 
@@ -42,7 +42,7 @@ def get_location():
 
 @tool(description='获取用户ID,以字符串格式返回,无输入参数 ')
 def get_user_id() -> str:
-   return '1005'
+   return agent_conf['user_id']
 
 # =========================================================================================================================
 

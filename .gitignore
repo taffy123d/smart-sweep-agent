@@ -12,4 +12,7 @@ wheels/
 # Chroma 向量数据库
 database/chroma_db/
 
+# 日志文件
+logs/
+
 .env

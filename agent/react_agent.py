@@ -1,4 +1,5 @@
 from langchain.agents import create_agent
+from langchain_core.messages import AIMessage
 from model.factory import chat_model
 from utils.prompt_loader import load_system_prompts
 from .tools.agent_tools import (
@@ -7,7 +8,6 @@ from .tools.agent_tools import (
 from .tools.middleware import  (
  monitor_tool,log_before_model,report_prompt_switch 
 )
-
 
 
 tools = [rag_summarize,get_weather,get_location,get_current_date,get_user_id,generate_external_data,fill_context_for_report]
@@ -29,8 +29,12 @@ class ReactAgent:
     }
     for chunk in self.agent.stream(input_dict,stream_mode='values',context={'report':False}): #contexnt即为提示词切换标记
       latest_message = chunk['messages'][-1]
-      if latest_message.content:
-        yield latest_message.content.strip()+'\n'    
+      if isinstance(latest_message, AIMessage) and latest_message.content:
+        msg_type = "thinking" if getattr(latest_message, 'tool_calls', []) else "final"
+        yield {
+          "type": msg_type,
+          "chunk": latest_message.content.strip()+'\n'
+        }
 
   def execute_invoke(self,query:str) ->str :
     input_dict = {
@@ -43,5 +47,5 @@ class ReactAgent:
 
 if __name__ == '__main__':
   agent = ReactAgent()
-  for chunk in agent.execute_stream('扫地机器人在当前地区的气温下如何保养？'):
-    print(chunk,end='',flush=True)
+  for item in agent.execute_stream('给我生成我的使用报告'):
+    print(item['chunk'],end='',flush=True)
