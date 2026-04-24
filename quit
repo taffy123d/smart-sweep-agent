@@ -1,0 +1,54 @@
+[33mcommit f76964ce7a605671b4a9b2cd9c2312068de5d8a4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: taffy123d <devoteintomath@qq.com>
+Date:   Fri Apr 24 17:13:46 2026 +0800
+
+    first commit
+
+prompts/main_prompt.txt
+
+[33mcommit cc08a9dada76f54624058ac3bfda1fb66f7213b2[m
+Author: taffy123d <devoteintomath@qq.com>
+Date:   Fri Apr 24 17:09:39 2026 +0800
+
+    first commit
+
+.env-example
+.gitignore
+.python-version
+README.md
+__init__.py
+agent/react_agent.py
+agent/tools/Location/location.py
+agent/tools/Weather/__init__.py
+agent/tools/Weather/weather.py
+agent/tools/agent_tools.py
+agent/tools/middleware.py
+config/agent.yml
+config/chroma.yml
+config/prompts.yml
+config/rag.yml
+data/external/records.csv
+"data/\346\211\253\345\234\260\346\234\272\345\231\250\344\272\272100\351\227\256.pdf"
+"data/\346\211\253\345\234\260\346\234\272\345\231\250\344\272\272100\351\227\2562.txt"
+"data/\346\211\253\346\213\226\344\270\200\344\275\223\346\234\272\345\231\250\344\272\272100\351\227\256.txt"
+"data/\346\225\205\351\232\234\346\216\222\351\231\244.txt"
+"data/\347\273\264\346\212\244\344\277\235\345\205\273.txt"
+"data/\351\200\211\350\264\255\346\214\207\345\215\227.txt"
+database/git-temp
+md5.text
+model/factory.py
+prompts/main_prompt copy.txt
+prompts/main_prompt.txt
+prompts/rag_summarize.txt
+prompts/report_prompt.txt
+pyproject.toml
+rag/__init__.py
+rag/rag_service.py
+rag/vector_store.py
+utils/__init__.py
+utils/config_handler.py
+utils/file_handler.py
+utils/logger_handler.py
+utils/path_tool.py
+utils/prompt_loader.py
+uv.lock
